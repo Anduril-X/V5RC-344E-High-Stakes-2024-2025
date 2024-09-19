@@ -19,7 +19,12 @@ void autonomous(void) {
 
 void usercontrol(void) {
   while (1) {
-
+    int axis1 = controller1.axis1.position(percent);
+    int axis2 = controller1.axis2.position(percent);
+    int axis3 = controller1.axis3.position(percent);
+    int axis4 = controller1.axis4.position(percent);
+    leftSide.set_velocity((0.0001 * (((axis3 + axis3) * (axis3 + axis3)) * (axis3 + axis3))), percent);
+    rightSide.set_velocity((0.0001 * (((axis3 - axis3) * (axis3 - axis3)) * (axis3 - axis3))), percent);
     wait(20, msec);
   }
 }
